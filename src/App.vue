@@ -10,8 +10,8 @@ onMounted(() => {
 <template>
 
 	<div class="container">
-		<div contenteditable="true" id="node-1" class="node_input">213213</div>
-		<div contenteditable="true" id="node-2" class="node_input node2"></div>
+		<div contenteditable="true" id="node-1" class="node_input node1">213213</div>
+		<div contenteditable="true" id="node-2" class="node_input"></div>
 		<canvas id="canvas">
 		</canvas>
 	</div>
