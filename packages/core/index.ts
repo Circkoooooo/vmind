@@ -1,1 +1,1 @@
-export { createLine } from './handle/createLine'
+export { createLine } from './preStroke/createLine'

@@ -1,14 +1,11 @@
 {
-	"name": "@vmind/core",
+	"name": "@vmind/event",
 	"version": "0.0.0",
-	"description": "",
+	"description": "some web event package",
 	"main": "index.ts",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"author": "cirko",
-	"license": "ISC",
-	"dependencies": {
-		"@vmind/event": "workspace:^0.0.0"
-	}
+	"license": "ISC"
 }

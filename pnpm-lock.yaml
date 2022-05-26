@@ -36,7 +36,10 @@ importers:
       '@vmind/core': link:../core
 
   packages/core:
-    specifiers: {}
+    specifiers:
+      '@vmind/event': workspace:^0.0.0
+    dependencies:
+      '@vmind/event': link:../event
 
 packages:
 
