@@ -1,8 +1,9 @@
 /**
- * put the function in the onMounted life cycle, offer two htmlElement node.
+ *  * put the function in the onMounted life cycle, offer two htmlElement node.
  * you need expose the function's invoke to a environment which exists the Window object.
- * @param lNode a htmlElement on left
- * @param rNode a htmlElement on right
+ * @param lNodeId
+ * @param rNodeId
+ * @param canvasId
  * @returns
  */
 export const createLine = (
@@ -29,7 +30,18 @@ export const createLine = (
 		resizeCanvas(node1, node2, cv1)
 	})
 }
+type Point = {
+	x: number
+	y: number
+}
 
+/**
+ * Calculate some coordinate data and invoke the strokeLine function to stroke a line bewteen lNode and rNode.
+ * @param lNode
+ * @param rNode
+ * @param canvas
+ * @returns
+ */
 const resizeCanvas = (
 	lNode: HTMLElement | null,
 	rNode: HTMLElement | null,
@@ -40,7 +52,6 @@ const resizeCanvas = (
 	if (!line) return
 
 	canvas.style.position = 'absolute'
-
 	let topNode: HTMLElement
 	lNode.offsetTop < rNode.offsetTop ? (topNode = lNode) : (topNode = rNode)
 
@@ -55,26 +66,41 @@ const resizeCanvas = (
 
 	canvas.style.top = cTop + 'px'
 	canvas.style.left = cLeft + 'px'
-
 	canvas.setAttribute('width', `${cWidth}`)
 	canvas.setAttribute('height', `${cHeight}`)
 
-	line.moveTo(
-		lNode.offsetWidth,
-		lNode.offsetTop === cTop
-			? // topNode === rNode
-			  bottomPx - lNode.offsetHeight / 2 - cTop
-			: lNode.offsetTop - cTop + lNode.offsetHeight / 2
-	)
-	line.lineTo(
-		rNode.offsetLeft - lNode.offsetLeft,
-		rNode.offsetTop === cTop
-			? // topNode === lNode
-			  bottomPx - rNode.offsetHeight / 2 - cTop
-			: rNode.offsetTop - cTop + rNode.offsetHeight / 2
-	)
+	let startPoint = {
+		x: lNode.offsetWidth,
+		y:
+			lNode.offsetTop === cTop
+				? bottomPx - lNode.offsetHeight / 2 - cTop
+				: lNode.offsetTop - cTop + lNode.offsetHeight / 2,
+	}
+	let endPoint = {
+		x: rNode.offsetLeft - lNode.offsetLeft,
+		y:
+			rNode.offsetTop === cTop
+				? bottomPx - rNode.offsetHeight / 2 - cTop
+				: rNode.offsetTop - cTop + rNode.offsetHeight / 2,
+	}
+	strokeLine(line, startPoint, endPoint)
+}
 
-	line.lineWidth = 1
+/**
+ * separate the stroke logic from resizeCanvas.
+ * @param line 
+ * @param startPoint 
+ * @param endPoint 
+ */
+const strokeLine = (
+	line: CanvasRenderingContext2D,
+	startPoint: Point,
+	endPoint: Point
+) => {
+	line.moveTo(startPoint.x, startPoint.y)
+	line.lineTo(endPoint.x, endPoint.y)
+
+	line.lineWidth = 2
 	line.strokeStyle = 'black'
 	line.stroke()
 }
