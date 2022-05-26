@@ -11,11 +11,19 @@
 		"isolatedModules": true,
 		"esModuleInterop": true,
 		"lib": ["esnext", "dom"],
+		"rootDir": ".",
+		"types": [],
 		"skipLibCheck": true,
 		"paths": {
-			"@/*": ["./src/*"]
+			"@vmind/core": ["./packages/core"],
+			"@vmind/client": ["./packages/client"]
 		}
 	},
-	"include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+	"include": [
+		"packages/**/*.ts",
+		"packages/**/*.d.ts",
+		"packages/**/*.tsx",
+		"packages/**/*.vue"
+, "packages/client/main.ts"	],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }

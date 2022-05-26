@@ -1,0 +1,15 @@
+{
+	"name": "@vmind/client",
+	"version": "0.0.0",
+	"description": "client of the vmind",
+	"main": "main.ts",
+	"scripts": {
+		"dev": "vite",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "cirko",
+	"license": "ISC",
+	"dependencies": {
+		"@vmind/core": "workspace:^0.0.0"
+	}
+}

@@ -1,25 +1,38 @@
 {
-  "name": "mindmap",
-  "private": true,
-  "version": "0.0.0",
-  "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "vue": "^3.2.25"
-  },
-  "devDependencies": {
-    "@types/node": "^17.0.35",
-    "@typescript-eslint/eslint-plugin": "^5.26.0",
-    "@typescript-eslint/parser": "^5.26.0",
-    "@vitejs/plugin-vue": "^2.3.3",
-    "eslint": "^8.16.0",
-    "eslint-plugin-vue": "^9.0.1",
-    "less": "^4.1.2",
-    "typescript": "^4.5.4",
-    "vite": "^2.9.9",
-    "vue-tsc": "^0.34.7"
-  }
+	"private": true,
+	"version": "0.0.0",
+	"packageManager": "pnpm@7.1.5",
+	"scripts": {
+		"dev": "pnpm -r --filter=./packages/** --parallel run dev",
+		"build": "vue-tsc --noEmit && vite build",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"vue": "^3.2.36"
+	},
+	"devDependencies": {
+		"@types/node": "^17.0.35",
+		"@typescript-eslint/eslint-plugin": "^5.26.0",
+		"@typescript-eslint/parser": "^5.26.0",
+		"@vitejs/plugin-vue": "^2.3.3",
+		"eslint": "^8.16.0",
+		"eslint-plugin-vue": "^9.0.1",
+		"less": "^4.1.2",
+		"typescript": "^4.7.2",
+		"vite": "^2.9.9",
+		"vue-tsc": "^0.34.16"
+	},
+	"description": "A mind map tools.",
+	"main": "package/client/main.ts",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Circkoooooo/mindmap.git"
+	},
+	"author": "cirko",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Circkoooooo/mindmap/issues"
+	},
+	"homepage": "https://github.com/Circkoooooo/mindmap#readme",
+	"name": "@vmind/mindmap"
 }
