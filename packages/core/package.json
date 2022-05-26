@@ -1,14 +1,13 @@
 {
 	"name": "@vmind/core",
-	"version": "0.0.0",
+	"version": "0.0.7",
 	"description": "",
-	"main": "index.ts",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "rimraf dist && tsc --outDir dist"
 	},
 	"author": "cirko",
-	"license": "ISC",
-	"dependencies": {
-		"@vmind/event": "workspace:^0.0.0"
-	}
+	"license": "ISC"
 }

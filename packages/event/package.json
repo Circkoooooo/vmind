@@ -1,10 +1,11 @@
 {
 	"name": "@vmind/event",
-	"version": "0.0.0",
+	"version": "0.0.7",
 	"description": "some web event package",
 	"main": "index.ts",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "rimraf dist &&  tsc --outDir dist "
 	},
 	"author": "cirko",
 	"license": "ISC"

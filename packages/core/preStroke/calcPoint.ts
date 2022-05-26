@@ -1,5 +1,3 @@
-import { Point } from '../types/Point'
-
 /**
  * Calculate some coordinate data.returns a canvas Object and two point:Point
  * @param lNode
@@ -11,13 +9,7 @@ export const calcStartEndPoint = (
 	lNode: HTMLElement | null,
 	rNode: HTMLElement | null,
 	canvas: HTMLCanvasElement
-):
-	| {
-			startPoint: Point
-			endPoint: Point
-			line: CanvasRenderingContext2D
-	  }
-	| undefined => {
+) => {
 	if (!lNode || !rNode || !canvas) return
 	const line = canvas.getContext('2d')
 	if (!line) return
@@ -41,14 +33,14 @@ export const calcStartEndPoint = (
 	canvas.setAttribute('height', `${cHeight}`)
 	canvas.style.pointerEvents = 'none'
 
-	let startPoint = {
+	const startPoint = {
 		x: lNode.offsetWidth,
 		y:
 			lNode.offsetTop === cTop
 				? bottomPx - lNode.offsetHeight / 2 - cTop
 				: lNode.offsetTop - cTop + lNode.offsetHeight / 2,
 	}
-	let endPoint = {
+	const endPoint = {
 		x: rNode.offsetLeft - lNode.offsetLeft,
 		y:
 			rNode.offsetTop === cTop

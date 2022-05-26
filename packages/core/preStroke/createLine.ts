@@ -9,18 +9,18 @@ import { strokeStraightLine } from '../strokeImp/strokeStraightLine'
  * you need expose the function's invoke to a environment which exists the Window object.
  * @param lNodeId
  * @param rNodeId
- * @param canvasId
  * @returns
  */
 export const createLine = (
 	lNodeId: string,
 	rNodeId: string,
-	canvasId: string,
 	lineType: LineType
 ) => {
 	const node1 = document.getElementById(lNodeId)
 	const node2 = document.getElementById(rNodeId)
-	const canvas = document.createElement(canvasId) as HTMLCanvasElement
+	const canvas = document.createElement(
+		`${lNodeId}-${rNodeId}`
+	) as HTMLCanvasElement
 	if (!node1 || !node2) return
 	if (node1.parentElement) {
 		node1.parentElement.appendChild(canvas)
@@ -45,12 +45,12 @@ const strokeLine = (
 	if (pointData === undefined) return
 	const { line, startPoint, endPoint } = pointData
 	switch (lineType) {
-		case 'straight':
-			strokeStraightLine(line, startPoint, endPoint)
-			break
-		case 'quadratic':
-			strokeQuadraticCurveLine(line, startPoint, endPoint)
-			break
+	case 'straight':
+		strokeStraightLine(line, startPoint, endPoint)
+		break
+	case 'quadratic':
+		strokeQuadraticCurveLine(line, startPoint, endPoint)
+		break
 	}
 }
 
