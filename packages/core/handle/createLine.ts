@@ -1,7 +1,18 @@
-export const createLine = () => {
-	const node1 = document.getElementById('node-1')
-	const node2 = document.getElementById('node-2')
-	const cv1 = document.getElementById('canvas') as HTMLCanvasElement
+/**
+ * put the function in the onMounted life cycle, offer two htmlElement node.
+ * you need expose the function's invoke to a environment which exists the Window object.
+ * @param lNode a htmlElement on left
+ * @param rNode a htmlElement on right
+ * @returns
+ */
+export const createLine = (
+	lNodeId: string,
+	rNodeId: string,
+	canvasId: string
+) => {
+	const node1 = document.getElementById(lNodeId)
+	const node2 = document.getElementById(rNodeId)
+	const cv1 = document.getElementById(canvasId) as HTMLCanvasElement
 
 	const container = document.getElementsByClassName('container')[0]
 	container.appendChild(cv1)
@@ -14,7 +25,9 @@ export const createLine = () => {
 	node2.addEventListener('input', () => {
 		resizeCanvas(node1, node2, cv1)
 	})
-	
+	window.addEventListener('resize', () => {
+		resizeCanvas(node1, node2, cv1)
+	})
 }
 
 const resizeCanvas = (
@@ -29,7 +42,6 @@ const resizeCanvas = (
 	canvas.style.position = 'absolute'
 
 	let topNode: HTMLElement
-
 	lNode.offsetTop < rNode.offsetTop ? (topNode = lNode) : (topNode = rNode)
 
 	const bottomPx =
@@ -38,7 +50,6 @@ const resizeCanvas = (
 			: lNode.offsetTop + lNode.offsetHeight
 	const cTop = topNode.offsetTop
 	const cHeight = bottomPx - topNode.offsetTop
-
 	const cWidth = rNode.offsetWidth + rNode.offsetLeft - lNode.offsetLeft
 	const cLeft = lNode.offsetLeft
 
@@ -50,15 +61,17 @@ const resizeCanvas = (
 
 	line.moveTo(
 		lNode.offsetWidth,
-		topNode === rNode
-			? bottomPx - lNode.offsetHeight / 2 - cTop
-			: lNode.offsetHeight / 2
+		lNode.offsetTop === cTop
+			? // topNode === rNode
+			  bottomPx - lNode.offsetHeight / 2 - cTop
+			: lNode.offsetTop - cTop + lNode.offsetHeight / 2
 	)
 	line.lineTo(
 		rNode.offsetLeft - lNode.offsetLeft,
-		topNode === lNode
-			? bottomPx - rNode.offsetHeight / 2 - cTop
-			: rNode.offsetHeight / 2
+		rNode.offsetTop === cTop
+			? // topNode === lNode
+			  bottomPx - rNode.offsetHeight / 2 - cTop
+			: rNode.offsetTop - cTop + rNode.offsetHeight / 2
 	)
 
 	line.lineWidth = 1
