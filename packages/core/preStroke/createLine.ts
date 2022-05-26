@@ -18,9 +18,9 @@ export const createLine = (
 ) => {
 	const node1 = document.getElementById(lNodeId)
 	const node2 = document.getElementById(rNodeId)
-	const canvas = document.createElement(
-		`${lNodeId}-${rNodeId}`
-	) as HTMLCanvasElement
+	const canvas = document.createElement('canvas') as HTMLCanvasElement
+	canvas.setAttribute('id', `${lNodeId}-${rNodeId}`)
+	
 	if (!node1 || !node2) return
 	if (node1.parentElement) {
 		node1.parentElement.appendChild(canvas)
