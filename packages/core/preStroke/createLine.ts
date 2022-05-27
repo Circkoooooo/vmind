@@ -1,5 +1,5 @@
 import { LineType } from '../types/Line'
-import { bindEvent } from '@vmind/event'
+import { bindEvent } from '../node_modules/@vmind/event/index'
 import { calcStartEndPoint } from './calcPoint'
 import { strokeQuadraticCurveLine } from '../strokeImp/strokeQuadraticCurveLine'
 import { strokeStraightLine } from '../strokeImp/strokeStraightLine'
@@ -20,7 +20,7 @@ export const createLine = (
 	const node2 = document.getElementById(rNodeId)
 	const canvas = document.createElement('canvas') as HTMLCanvasElement
 	canvas.setAttribute('id', `${lNodeId}-${rNodeId}`)
-	
+
 	if (!node1 || !node2) return
 	if (node1.parentElement) {
 		node1.parentElement.appendChild(canvas)
@@ -45,12 +45,12 @@ const strokeLine = (
 	if (pointData === undefined) return
 	const { line, startPoint, endPoint } = pointData
 	switch (lineType) {
-	case 'straight':
-		strokeStraightLine(line, startPoint, endPoint)
-		break
-	case 'quadratic':
-		strokeQuadraticCurveLine(line, startPoint, endPoint)
-		break
+		case 'straight':
+			strokeStraightLine(line, startPoint, endPoint)
+			break
+		case 'quadratic':
+			strokeQuadraticCurveLine(line, startPoint, endPoint)
+			break
 	}
 }
 
