@@ -1,4 +1,5 @@
 # .npmignore
-
 *.ts
 !*.d.ts
+*.config.js
+*.json
