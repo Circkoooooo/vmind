@@ -1,6 +1,6 @@
 {
 	"private": true,
-	"version": "0.0.4",
+	"version": "0.0.5-beta.1",
 	"description": "a mind map tools",
 	"main": "index.ts",
 	"scripts": {
