@@ -1,6 +1,6 @@
 {
 	"name": "@vmind/core",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"description": "",
 	"main": "./dist/bundle.js",
 	"types": "./dist/index.d.ts",
@@ -10,6 +10,6 @@
 	"author": "cirko",
 	"license": "ISC",
 	"dependencies": {
-		"@vmind/event": "workspace:0.0.5-beta.1"
+		"@vmind/event": "workspace:*"
 	}
 }
