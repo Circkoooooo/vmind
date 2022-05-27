@@ -1,8 +1,9 @@
 # <center> Mindmap
 ## Introduce
-A mind map tools.
+It's a mind map app.
 
-## use
+## If you want to run the app
+
 ```
 # npm
 npm install
