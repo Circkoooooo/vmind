@@ -1,1 +1,2 @@
-export { createLine } from './preStroke/createLine'
+export * from './preStroke/createLine'
+export * from './types/types'
