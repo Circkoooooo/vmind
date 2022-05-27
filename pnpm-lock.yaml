@@ -43,7 +43,7 @@ importers:
 
   packages/core:
     specifiers:
-      '@vmind/event': workspace:0.0.5-beta.1
+      '@vmind/event': workspace:*
     dependencies:
       '@vmind/event': link:../event
 
