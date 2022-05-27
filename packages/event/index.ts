@@ -1,1 +1,2 @@
-export { bindEvent } from './handler/bindEvent'
+export * from './handler/bindEvent'
+export * from './types/types'
