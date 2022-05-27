@@ -1,44 +1,26 @@
 {
-	"private": false,
-	"name": "vmind",
-	"version": "0.0.7",
-	"packageManager": "pnpm@7.1.5",
-	"description": "A mind map tools.",
-	"main": "package/client/main.ts",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Circkoooooo/mindmap.git"
+	"private": true,
+	"version": "0.0.2-beta.1",
+	"description": "a mind map tools",
+	"main": "index.ts",
+	"scripts": {
+		"dev": "pnpm -r --parallel --filter=./packages/** run dev",
+		"release": "bumpp package.json packages/*/package.json && pnpm -r publish --access public",
+		"test": "echo \"Error: no test specified\" && exit 1"
 	},
+	"keywords": [
+		"mindmap"
+	],
 	"author": "cirko",
 	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/Circkoooooo/mindmap/issues"
-	},
-	"homepage": "https://github.com/Circkoooooo/mindmap#readme",
-	"workspaces": [
-		"packages/*"
-	],
-	"scripts": {
-		"dev": "pnpm -r --filter=./packages/** --parallel run dev",
-		"build": "pnpm -r --filter=./packages/** --parallel run build ",
-		"prepublishOnly": "npm run build",
-		"preview": "vite preview"
-	},
 	"dependencies": {
-		"esbuild": "^0.14.39",
-		"rimraf": "^3.0.2",
-		"vue": "^3.2.36",
-		"vue-tsc": "^0.34.16"
+		"bumpp": "^7.1.1",
+		"vue": "^3.2.25"
 	},
 	"devDependencies": {
-		"@types/node": "^17.0.35",
-		"@typescript-eslint/eslint-plugin": "^5.26.0",
-		"@typescript-eslint/parser": "^5.26.0",
 		"@vitejs/plugin-vue": "^2.3.3",
-		"eslint": "^8.16.0",
-		"eslint-plugin-vue": "^9.0.1",
-		"less": "^4.1.2",
-		"typescript": "^4.7.2",
-		"vite": "^2.9.9"
+		"typescript": "^4.5.4",
+		"vite": "^2.9.9",
+		"vue-tsc": "^0.34.7"
 	}
 }

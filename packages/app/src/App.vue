@@ -3,7 +3,7 @@ import { createLine } from '@vmind/core'
 
 import { onMounted } from 'vue'
 onMounted(() => {
-	createLine('node-1', 'node-2', 'canvas', 'straight')
+	createLine('node-1', 'node-2', 'straight')
 })
 </script>
 

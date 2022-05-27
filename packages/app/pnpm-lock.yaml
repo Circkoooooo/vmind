@@ -1,0 +1,7 @@
+lockfileVersion: 5.4
+
+specifiers:
+  '@vmind/core': workspace:^0.0.0
+
+dependencies:
+  '@vmind/core': link:../core

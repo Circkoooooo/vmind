@@ -1,15 +1,14 @@
 {
 	"name": "@vmind/core",
-	"version": "0.2.0",
+	"version": "0.0.2-beta.1",
 	"description": "",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
+	"main": "index.ts",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "rimraf dist && tsc --outDir dist",
-		"publish": "npm publish --access public",
-		"prepublishOnly": "npm run build && npm run publish"
+		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"author": "cirko",
-	"license": "ISC"
+	"license": "ISC",
+	"dependencies": {
+		"@vmind/event": "workspace:*"
+	}
 }
