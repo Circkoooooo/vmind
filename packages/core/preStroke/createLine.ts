@@ -24,10 +24,10 @@ export const createLine = async (
 	canvas.setAttribute('id', `${lNodeId}-${rNodeId}`)
 
 	if (!node1) {
-		throw ReferenceError(`can't find a element, which id is ${lNodeId}`)
+		throw ReferenceError(`Can't find a element which id is ${lNodeId}`)
 	}
 	if (!node2) {
-		throw ReferenceError(`can't find a element, which id is ${rNodeId}`)
+		throw ReferenceError(`Can't find a element which id is ${rNodeId}`)
 	}
 	if (node1.parentElement) {
 		node1.parentElement.appendChild(canvas)
