@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { createLine } from '@vmind/core/index'
-import { onMounted } from 'vue';
+import { onMounted } from 'vue'
 
 onMounted(() => {
-	createLine("node-1", "node-2", "straight")
-	createLine("node-2", "node-3", "straight")
-
+	createLine('node-1', 'node-2', 'straight')
+	createLine('node-2', 'node-3', 'straight')
 })
 </script>
 
