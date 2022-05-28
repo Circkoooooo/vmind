@@ -1,17 +1,16 @@
 <script setup lang="ts">
-import { createLine } from '@vmind/core/index'
-import { onMounted } from 'vue'
+import MindBlock from './components/MindBlock/src/MindBlock.vue'
 
-onMounted(() => {
-	createLine('node-1', 'node-2', 'straight')
-	createLine('node-2', 'node-3', 'straight')
-})
+import { mindTree } from '@/composables/useMindTree'
+// onMounted(() => {
+// })
 </script>
 
 <template>
-	<div class="container">
-		<div contenteditable="true" id="node-1" class="node_input">21312</div>
-		<div contenteditable="true" id="node-2" class="node_input">21312</div>
-		<div contenteditable="true" id="node-3" class="node_input">21312</div>
+	<div class="container"
+			id="123"
+			itme="3"
+			name="4">
+		<MindBlock v-for="(mindBlock, key) in mindTree" :key="key" :mindBlock="mindBlock"></MindBlock>
 	</div>
 </template>

@@ -19,6 +19,7 @@
 	"rules": {
 		"indent": ["error", "tab"],
 		"quotes": ["error", "single"],
-		"semi": ["error", "never"]
+		"semi": ["error", "never"],
+		"vue/no-multiple-template-root": "off"
 	}
 }
