@@ -1,55 +1,26 @@
+import { Point, StrokeLineData } from '../index'
+import { canvas } from './canvasHandler'
+import { lineBucket } from './linehandler'
+
 /**
- * Calculate some coordinate data.returns a canvas Object and two point:Point
- * @param lNode
- * @param rNode
- * @param canvas
- * @returns lNode,rNode,line:CanvasRenderingContext
+ * calc all the startpoint and endpoint info of the line.
  */
-export const calcStartEndPoint = (
-	lNode: HTMLElement | null,
-	rNode: HTMLElement | null,
-	canvas: HTMLCanvasElement
-) => {
-	if (!lNode || !rNode || !canvas) return
-	const line = canvas.getContext('2d')
-	if (!line) return
+export const calculatePointList = (): StrokeLineData[] => {
+	const strokeLineList: StrokeLineData[] = []
+	lineBucket.forEach(item => {
+		const { node1, node2, lineType } = item
 
-	canvas.style.position = 'absolute'
-	let topNode: HTMLElement
-	lNode.offsetTop < rNode.offsetTop ? (topNode = lNode) : (topNode = rNode)
+		const startX = node1.offsetLeft + node1.offsetWidth - canvas.offsetLeft
+		const startY = node1.offsetTop + node1.offsetHeight / 2 - canvas.offsetTop
 
-	// const bottomPx =
-	// 	lNode.offsetTop + lNode.offsetHeight < rNode.offsetTop + rNode.offsetHeight
-	// 		? rNode.offsetTop + rNode.offsetHeight
-	// 		: lNode.offsetTop + lNode.offsetHeight
-	// const cTop = topNode.offsetTop
-	// const cHeight = bottomPx - topNode.offsetTop
-	// const cWidth = rNode.offsetWidth + rNode.offsetLeft - lNode.offsetLeft
-	// const cLeft = lNode.offsetLeft
+		const endX = node2.offsetLeft - canvas.offsetLeft
+		const endY = node2.offsetTop + node2.offsetHeight / 2 - canvas.offsetTop
 
-	// canvas.style.top = cTop + 'px'
-	// canvas.style.left = cLeft + 'px'
-	// canvas.setAttribute('width', `${cWidth}`)
-	// canvas.setAttribute('height', `${cHeight}`)
-	// canvas.style.pointerEvents = 'none'
+		const startPoint = { x: startX, y: startY } as Point
+		const endPoint = { x: endX, y: endY }
 
-	// const startPoint = {
-	// 	x: lNode.offsetWidth,
-	// 	y:
-	// 		lNode.offsetTop === cTop
-	// 			? bottomPx - lNode.offsetHeight / 2 - cTop
-	// 			: lNode.offsetTop - cTop + lNode.offsetHeight / 2,
-	// }
-	// const endPoint = {
-	// 	x: rNode.offsetLeft - lNode.offsetLeft,
-	// 	y:
-	// 		rNode.offsetTop === cTop
-	// 			? bottomPx - rNode.offsetHeight / 2 - cTop
-	// 			: rNode.offsetTop - cTop + rNode.offsetHeight / 2,
-	// }
-	// return {
-	// 	line,
-	// 	startPoint,
-	// 	endPoint,
-	// }
+		strokeLineList.push({ startPoint, endPoint, lineType } as StrokeLineData)
+	})
+	console.log(strokeLineList)
+	return strokeLineList
 }

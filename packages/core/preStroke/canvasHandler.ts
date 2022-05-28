@@ -1,8 +1,10 @@
 import { LineInstance } from '../index'
 
 let canvas: HTMLCanvasElement = null
+let canvasBound: CanvasRenderingContext2D = null
 const initCanvas = () => {
 	canvas = document.createElement('canvas') as HTMLCanvasElement
+	canvasBound = canvas.getContext('2d')
 	canvas.style.position = 'absolute'
 	canvas.style.pointerEvents = 'none'
 }
@@ -59,4 +61,4 @@ const updateCanvas = (lineBucket: LineInstance[]) => {
 	canvas.setAttribute('width', `${width}`)
 }
 
-export { canvas, initCanvas, updateCanvas }
+export { canvas, canvasBound, initCanvas, updateCanvas }

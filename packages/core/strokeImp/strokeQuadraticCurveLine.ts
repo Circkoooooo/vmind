@@ -1,9 +1,9 @@
+import { StrokeLineData } from '../index'
 import { Point } from '../types/Point'
 
 export const strokeQuadraticCurveLine = (
-	pointBucket: {
-		line: CanvasRenderingContext2D
-		startPoint: Point
-		endPoint: Point
-	}[]
-) => {}
+	startPoint: Point,
+	endPoint: Point
+) => {
+	console.log('stroke xxxx')
+}
