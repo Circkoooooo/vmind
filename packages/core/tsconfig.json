@@ -3,6 +3,7 @@
 		"declaration": true,
 		"module": "ESNext",
 		"sourceMap": true,
-		"target": "es5"
+		"target": "ES2015",
+		"lib": ["DOM", "ESNEXT"]
 	}
 }

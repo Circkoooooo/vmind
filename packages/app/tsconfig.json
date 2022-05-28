@@ -10,7 +10,7 @@
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"esModuleInterop": true,
-		"lib": ["esnext", "dom"],
+		"lib": ["ESNext", "DOM"],
 		"skipLibCheck": true
 	},
 	"include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],

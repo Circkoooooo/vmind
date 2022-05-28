@@ -1,5 +1,5 @@
 import { LineType, LineInstance } from '../types/types'
-import { bindEvent } from '../node_modules/@vmind/event/index'
+import { bindEvent } from '../../event/index'
 import { calculatePointList } from './calcPoint'
 import { canvas, initCanvas, updateCanvas } from './canvasHandler'
 import { strokeStraightLine } from '../strokeImp/strokeStraightLine'
