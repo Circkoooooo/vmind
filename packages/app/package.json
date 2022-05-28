@@ -10,5 +10,9 @@
 		"@vmind/core": "workspace:*",
 		"less": "^4.1.2",
 		"less-loader": "^11.0.0"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-vue": "^2.3.3",
+		"vite": "^2.9.9"
 	}
 }

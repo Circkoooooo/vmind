@@ -16,6 +16,7 @@
 	"dependencies": {
 		"@types/node": "^17.0.35",
 		"bumpp": "^7.1.1",
+		"eslint": "^8.16.0",
 		"rollup-plugin-typescript2": "^0.31.2",
 		"vue": "^3.2.25"
 	},
