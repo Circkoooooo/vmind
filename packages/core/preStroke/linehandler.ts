@@ -3,9 +3,15 @@ import { bindEvent } from '../node_modules/@vmind/event/index'
 import { calcStartEndPoint } from './calcPoint'
 import { strokeQuadraticCurveLine } from '../strokeImp/strokeQuadraticCurveLine'
 import { strokeStraightLine } from '../strokeImp/strokeStraightLine'
+import { canvas, initCanvas, updateCanvas } from './canvasHandler'
+import { Point } from '../index'
 
 const lineBucket: LineInstance[] = []
-
+const pointBucket: {
+	line: CanvasRenderingContext2D
+	startPoint: Point
+	endPoint: Point
+}[] = []
 /**
  *  * put the function in the onMounted life cycle, offer two htmlElement node.
  * you need expose the function's invoke to a environment which exists the Window object.
@@ -13,15 +19,15 @@ const lineBucket: LineInstance[] = []
  * @param rNodeId
  * @returns
  */
-export const createLine = async (
+const createLine = async (
 	lNodeId: string,
 	rNodeId: string,
 	lineType: LineType
 ) => {
+	if (canvas === null) initCanvas()
+
 	const node1 = document.getElementById(lNodeId)
 	const node2 = document.getElementById(rNodeId)
-	const canvas = document.createElement('canvas') as HTMLCanvasElement
-	canvas.setAttribute('id', `${lNodeId}-${rNodeId}`)
 
 	if (!node1) {
 		throw ReferenceError(`Can't find a element which id is ${lNodeId}`)
@@ -29,11 +35,10 @@ export const createLine = async (
 	if (!node2) {
 		throw ReferenceError(`Can't find a element which id is ${rNodeId}`)
 	}
-	if (node1.parentElement) {
-		node1.parentElement.appendChild(canvas)
-	}
 
-	await pushLine({ node1, node2, canvas, lineType })
+	document.body.appendChild(canvas)
+
+	await pushLine({ node1, node2, lineType })
 	strokeLine()
 	// 立刻执行一次绘制
 	// 将绘制传入桶中
@@ -43,18 +48,19 @@ export const createLine = async (
 }
 
 const strokeLine = () => {
+	updateCanvas(lineBucket)
 	lineBucket.forEach(item => {
-		const { node1, node2, canvas, lineType } = item
-		if (!checkNodeExist(node1, node2, canvas)) return
+		const { node1, node2, lineType } = item
+		if (!checkNodeExist(node1, node2)) return
 		const pointData = calcStartEndPoint(node1, node2, canvas)
 		if (pointData === undefined) return
-		const { line, startPoint, endPoint } = pointData
+		pointBucket.push(pointData)
 		switch (lineType) {
 			case 'straight':
-				strokeStraightLine(line, startPoint, endPoint)
+				strokeStraightLine(pointBucket)
 				break
 			case 'quadratic':
-				strokeQuadraticCurveLine(line, startPoint, endPoint)
+				strokeQuadraticCurveLine(pointBucket)
 				break
 		}
 	})
@@ -63,11 +69,7 @@ const strokeLine = () => {
 /**
  * check if the node exist
  */
-const checkNodeExist = (
-	lNode: HTMLElement,
-	rNode: HTMLElement,
-	canvas: HTMLCanvasElement
-) => {
+const checkNodeExist = (lNode: HTMLElement, rNode: HTMLElement) => {
 	const nodeId = lNode.getAttribute('id')
 	const node2Id = rNode.getAttribute('id')
 	if (
@@ -96,3 +98,5 @@ const pushLine = (lineInstance: LineInstance) => {
 		resolve(lineInstance)
 	})
 }
+
+export { lineBucket, createLine }

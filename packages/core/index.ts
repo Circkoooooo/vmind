@@ -1,2 +1,2 @@
-export * from './preStroke/createLine'
+export * from './preStroke/linehandler'
 export * from './types/types'
