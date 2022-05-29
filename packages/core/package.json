@@ -11,5 +11,8 @@
 	"license": "ISC",
 	"dependencies": {
 		"@vmind/event": "workspace:*"
+	},
+	"devDependencies": {
+		"vitest": "^0.13.0"
 	}
 }

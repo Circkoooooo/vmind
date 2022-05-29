@@ -87,4 +87,4 @@ const pushLine = (lineInstance: LineInstance) => {
 	})
 }
 
-export { lineBucket, createLine }
+export { lineBucket, createLine, checkNodeExist }
