@@ -1,15 +1,15 @@
-import { Point, StrokeLineData } from '../index'
-import { canvas } from './canvasHandler'
-import { lineBucket } from './linehandler'
+import { LineInstance, Point, StrokeLineData } from '../index'
 
 /**
  * calc all the startpoint and endpoint info of the line.
  */
-export const calculatePointList = (): StrokeLineData[] => {
+export const calculatePointList = (
+	canvas: HTMLCanvasElement,
+	lineBucket: LineInstance[]
+): StrokeLineData[] => {
 	const strokeLineList: StrokeLineData[] = []
 	lineBucket.forEach(item => {
 		const { node1, node2, lineType } = item
-
 		const startX = node1.offsetLeft + node1.offsetWidth - canvas.offsetLeft
 		const startY = node1.offsetTop + node1.offsetHeight / 2 - canvas.offsetTop
 

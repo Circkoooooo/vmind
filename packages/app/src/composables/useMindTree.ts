@@ -3,33 +3,32 @@ import { createLine } from '@vmind/core/index'
 import { reactive, nextTick } from 'vue'
 
 const mindTree = reactive<Array<MindBlockType>>([
-	{ id: 1, value: 'hello', branchId: 1 }
+	{ id: 1, value: '', branchId: 1 },
 ])
 
 /**
  * push a mindBlock object to mindTree.
  * @param oldBlock
  */
-const pushNewBlock = async (oldBlock: MindBlockType) => {
+const enterToPush = async (oldBlock: MindBlockType) => {
 	const newBranchId = oldBlock.branchId + 1
 
-	let minCurrentId = 0
 	const blocks = mindTree.filter(item => {
-		item.branchId === newBranchId
+		return item.branchId === newBranchId
 	})
+
+	let minCurrentId = 1
 	if (blocks.length !== 0) {
-		blocks.forEach(block => {
-			if (block.id > minCurrentId) {
-				minCurrentId = block.id
-			}
-		})
+		minCurrentId = blocks.length + 1
 	}
 	const newBlock = {
-		id: minCurrentId + 1,
+		id: minCurrentId,
 		branchId: newBranchId,
 	}
+
 	mindTree.push(newBlock)
 	await nextTick()
+
 	createLine(
 		`${oldBlock.branchId.toString()}-${oldBlock.id.toString()}`,
 		`${newBlock.branchId.toString()}-${newBlock.id.toString()}`,
@@ -39,4 +38,5 @@ const pushNewBlock = async (oldBlock: MindBlockType) => {
 		.getElementById(`${newBlock.branchId.toString()}-${newBlock.id.toString()}`)
 		?.focus()
 }
-export { mindTree, pushNewBlock }
+
+export { mindTree, enterToPush }

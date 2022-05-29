@@ -1,18 +1,22 @@
 import { LineInstance } from '../index'
 
 let canvas: HTMLCanvasElement = null
-let canvasBound: CanvasRenderingContext2D = null
+let canvasRender: CanvasRenderingContext2D = null
 
 const initCanvas = () => {
 	canvas = document.createElement('canvas') as HTMLCanvasElement
-	canvasBound = canvas.getContext('2d')
+	canvasRender = canvas.getContext('2d')
+	document.body.appendChild(canvas)
 	canvas.style.position = 'absolute'
 	canvas.style.pointerEvents = 'none'
 }
 /*
  * update the postion and size of canvas, makes it cover the nodes.
  */
-const updateCanvas = (lineBucket: LineInstance[]) => {
+const updateCanvas = (
+	canvas: HTMLCanvasElement,
+	lineBucket: LineInstance[]
+) => {
 	const waitNode: HTMLElement[] = []
 	lineBucket.forEach(item => {
 		const { node1, node2 } = item
@@ -55,11 +59,10 @@ const updateCanvas = (lineBucket: LineInstance[]) => {
 			width = right - left
 		}
 	})
-
 	canvas.style.left = left + 'px'
 	canvas.style.top = top + 'px'
 	canvas.setAttribute('height', `${height}`)
 	canvas.setAttribute('width', `${width}`)
 }
 
-export { canvas, canvasBound, initCanvas, updateCanvas }
+export { canvas, canvasRender, initCanvas, updateCanvas }

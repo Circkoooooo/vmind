@@ -1,8 +1,8 @@
 import { Point } from '../index'
-import { canvasBound } from '../preStroke/canvasHandler'
+import { canvasRender } from '../preStroke/canvasHandler'
 
 export const strokeStraightLine = (startPoint: Point, endPoint: Point) => {
-	const line = canvasBound
+	const line = canvasRender
 	line.moveTo(startPoint.x, startPoint.y)
 	line.lineTo(endPoint.x, endPoint.y)
 	line.lineWidth = 2

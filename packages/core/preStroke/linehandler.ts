@@ -6,7 +6,6 @@ import { strokeStraightLine } from '../strokeImp/strokeStraightLine'
 import { strokeQuadraticCurveLine } from '../strokeImp/strokeQuadraticCurveLine'
 
 const lineBucket: LineInstance[] = []
-
 /**
  *  * put the function in the onMounted life cycle, offer two htmlElement node.
  * you need expose the function's invoke to a environment which exists the Window object.
@@ -20,7 +19,6 @@ const createLine = async (
 	lineType: LineType
 ) => {
 	if (canvas === null) initCanvas()
-
 	const node1 = document.getElementById(lNodeId)
 	const node2 = document.getElementById(rNodeId)
 
@@ -31,8 +29,6 @@ const createLine = async (
 		throw ReferenceError(`Can't find a element which id is ${rNodeId}`)
 	}
 
-	document.body.appendChild(canvas)
-
 	await pushLine({ node1, node2, lineType })
 	strokeLine()
 	// invoke a stroke immediately, then bind the stroke event to related element.
@@ -42,9 +38,9 @@ const createLine = async (
 }
 
 const strokeLine = () => {
-	checkNodeExist(lineBucket)
-	updateCanvas(lineBucket)
-	const strokeLineList = calculatePointList()
+	checkNodeExist()
+	updateCanvas(canvas, lineBucket)
+	const strokeLineList = calculatePointList(canvas, lineBucket)
 
 	strokeLineList.forEach(item => {
 		const { startPoint, endPoint, lineType } = item
@@ -62,7 +58,7 @@ const strokeLine = () => {
 /**
  * check if the node exist
  */
-const checkNodeExist = (lineBucket: LineInstance[]) => {
+const checkNodeExist = () => {
 	let newList: LineInstance[] = []
 	lineBucket.forEach(line => {
 		const { node1, node2 } = line

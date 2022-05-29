@@ -1,7 +1,7 @@
 import { MindBlockType } from '@/types'
-import { pushNewBlock } from './useMindTree'
+import { enterToPush } from './useMindTree'
 
-export const createNode = (event: KeyboardEvent, mindBlock: MindBlockType) => {
+export const enter = (event: KeyboardEvent, mindBlock: MindBlockType) => {
 	event.preventDefault()
-	pushNewBlock(mindBlock)
+	enterToPush(mindBlock)
 }
