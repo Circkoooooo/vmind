@@ -5,7 +5,6 @@ import { MindBlockType } from '@/types'
 withDefaults(defineProps<{
 	mindBlock: MindBlockType
 }>(), {})
-
 </script>
 
 <template>
