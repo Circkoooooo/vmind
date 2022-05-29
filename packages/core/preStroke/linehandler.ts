@@ -42,6 +42,7 @@ const createLine = async (
 }
 
 const strokeLine = () => {
+	checkNodeExist(lineBucket)
 	updateCanvas(lineBucket)
 	const strokeLineList = calculatePointList()
 
@@ -61,20 +62,15 @@ const strokeLine = () => {
 /**
  * check if the node exist
  */
-const checkNodeExist = (lNode: HTMLElement, rNode: HTMLElement) => {
-	const nodeId = lNode.getAttribute('id')
-	const node2Id = rNode.getAttribute('id')
-	if (
-		nodeId &&
-		node2Id &&
-		document.getElementById(nodeId) &&
-		document.getElementById(node2Id)
-	) {
-		return true
-	} else {
-		canvas.remove()
-		return false
-	}
+const checkNodeExist = (lineBucket: LineInstance[]) => {
+	let newList: LineInstance[] = []
+	lineBucket.forEach(line => {
+		const { node1, node2 } = line
+		if (node1 && node2) {
+			newList.push(line)
+		}
+	})
+	newList = lineBucket
 }
 /**
  * push the line to line bucket

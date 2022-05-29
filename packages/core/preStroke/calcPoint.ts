@@ -21,6 +21,5 @@ export const calculatePointList = (): StrokeLineData[] => {
 
 		strokeLineList.push({ startPoint, endPoint, lineType } as StrokeLineData)
 	})
-	console.log(strokeLineList)
 	return strokeLineList
 }

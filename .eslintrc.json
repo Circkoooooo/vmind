@@ -17,7 +17,7 @@
 	},
 	"plugins": ["vue", "@typescript-eslint"],
 	"rules": {
-		"indent": ["error", "tab"],
+		"indent": ["error", "tab", { "SwitchCase": 1 }],
 		"quotes": ["error", "single"],
 		"semi": ["error", "never"],
 		"vue/no-multiple-template-root": "off"

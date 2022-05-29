@@ -3,7 +3,7 @@ import { createLine } from '@vmind/core/index'
 import { reactive, nextTick } from 'vue'
 
 const mindTree = reactive<Array<MindBlockType>>([
-	{ id: 1, value: 'hello', branchId: 1 },
+	{ id: 1, value: 'hello', branchId: 1 }
 ])
 
 /**

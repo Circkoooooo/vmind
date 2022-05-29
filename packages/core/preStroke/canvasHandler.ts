@@ -2,6 +2,7 @@ import { LineInstance } from '../index'
 
 let canvas: HTMLCanvasElement = null
 let canvasBound: CanvasRenderingContext2D = null
+
 const initCanvas = () => {
 	canvas = document.createElement('canvas') as HTMLCanvasElement
 	canvasBound = canvas.getContext('2d')
