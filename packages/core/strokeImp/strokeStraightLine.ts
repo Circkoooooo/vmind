@@ -1,5 +1,5 @@
 import { Point } from '../index'
-import { canvasRender } from '../preStroke/canvasHandler'
+import { canvasRender } from '../handleStroke/canvasHandler'
 
 export const strokeStraightLine = (startPoint: Point, endPoint: Point) => {
 	const line = canvasRender

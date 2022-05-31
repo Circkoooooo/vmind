@@ -8,6 +8,7 @@
 	},
 	"dependencies": {
 		"@vmind/core": "workspace:*",
+		"html2canvas": "^1.4.1",
 		"less": "^4.1.2",
 		"less-loader": "^11.0.0"
 	},

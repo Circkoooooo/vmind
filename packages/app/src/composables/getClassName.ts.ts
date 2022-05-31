@@ -8,7 +8,7 @@ import { MindBlockType } from '@/types'
 export const getClassName = (block: MindBlockType) => {
 	const baseClass = ['blocktheme-base']
 
-	if (block.isRoot) {
+	if (block && block.isRoot) {
 		const rootClass = baseClass
 		rootClass.push('blocktheme-root')
 		return [rootClass]

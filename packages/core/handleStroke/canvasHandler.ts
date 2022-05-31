@@ -1,9 +1,9 @@
 import { LineInstance } from '../index'
 
-let canvas: HTMLCanvasElement = null
-let canvasRender: CanvasRenderingContext2D = null
+export let canvas: HTMLCanvasElement = null
+export let canvasRender: CanvasRenderingContext2D = null
 
-const initCanvas = () => {
+export const initCanvas = () => {
 	canvas = document.createElement('canvas') as HTMLCanvasElement
 	canvasRender = canvas.getContext('2d')
 	document.body.appendChild(canvas)
@@ -13,7 +13,7 @@ const initCanvas = () => {
 /*
  * update the postion and size of canvas, makes it cover the nodes.
  */
-const updateCanvas = (
+export const updateCanvas = (
 	canvas: HTMLCanvasElement,
 	lineBucket: LineInstance[]
 ) => {
@@ -70,5 +70,3 @@ const updateCanvas = (
 	canvas.setAttribute('height', `${height}`)
 	canvas.setAttribute('width', `${width}`)
 }
-
-export { canvas, canvasRender, initCanvas, updateCanvas }

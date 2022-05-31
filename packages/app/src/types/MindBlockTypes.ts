@@ -1,7 +1,7 @@
 export type MindBlockType = {
 	id: number
 	branchId: number
-	value?: string
+	value: string
 	parentId?: number
 	isRoot: boolean
 }

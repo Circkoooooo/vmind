@@ -1,5 +1,5 @@
 import { Point } from '../types/Point'
-import { canvasRender } from '../preStroke/canvasHandler'
+import { canvasRender } from '../handleStroke/canvasHandler'
 
 export const strokeBezierCurveLine = (startPoint: Point, endPoint: Point) => {
 	const line = canvasRender

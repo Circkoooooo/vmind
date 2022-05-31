@@ -10,26 +10,35 @@ const props = withDefaults(defineProps<{
 	mindBlock: MindBlockType
 }>(), {})
 
+
 const childBlocks = computed(() => {
 	return mindTree.filter(item => {
 		return item.parentId === props.mindBlock.id && item.branchId === props.mindBlock.branchId + 1
 	})
 })
 
+const changeValue = (e: Event) => {
+	const input = e.target as HTMLInputElement
+	mindTree.forEach(item => {
+		if (item.id === props.mindBlock.id && item.branchId === props.mindBlock.branchId) {
+			console.log(input.value)
+			item.value = input.value
+		}
+	})
+}
+
 
 </script>
 
 <template>
 	<div class="mind_block">
-		<div :class="getClassName(mindBlock)"
-				class="node_input"
+		<input :class="getClassName(mindBlock)"
 				contenteditable="true"
-				@keydown.enter="enter($event, mindBlock)"
+				class="node_input"
+				@input="changeValue($event)"
 				:value="mindBlock.value"
-				:id="mindBlock.branchId.toString() + '-' + mindBlock.id">{{
-						mindBlock.value
-				}}
-		</div>
+				@keydown.enter="enter($event, mindBlock)"
+				:id="mindBlock.branchId.toString() + '-' + mindBlock.id" />
 		<MindBranch v-if="childBlocks.length !== 0"
 				:blocks="childBlocks"></MindBranch>
 	</div>
