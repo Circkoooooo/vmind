@@ -8,7 +8,7 @@ It provides some line tools, if you want to use it, see [@vmind/core](https://ww
 
 Once you install it, you can use it in you project.
 ```
-import {createLine} from '@mind/core'
+import {createLine} from '@vmind/core'
 
 createLine("nodeId-1","nodeId-2","straight")
 ```

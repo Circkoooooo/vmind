@@ -15,6 +15,7 @@ const branches = computed(() => {
 	})
 	return branchList
 })
+
 </script>
 
 <template>
