@@ -3,7 +3,7 @@ import { createLine } from '@vmind/core/index'
 import { reactive, nextTick } from 'vue'
 
 const mindTree = reactive<Array<MindBlockType>>([
-	{ id: 1, value: '', branchId: 1, parentId: 0 },
+	{ id: 1, value: '', branchId: 1, parentId: 0, isRoot: true },
 ])
 
 /**
@@ -25,6 +25,7 @@ const enterToPush = async (oldBlock: MindBlockType) => {
 		id: minCurrentId,
 		branchId: newBranchId,
 		parentId: oldBlock.id,
+		isRoot: false,
 	}
 
 	mindTree.push(newBlock)

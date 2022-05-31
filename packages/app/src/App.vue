@@ -12,6 +12,7 @@ const root = computed(() => {
 
 <template>
 	<div class="container">
-		<MindBlock :mindBlock="root"></MindBlock>
+		<MindBlock id="root_mind"
+				:mindBlock="root"></MindBlock>
 	</div>
 </template>

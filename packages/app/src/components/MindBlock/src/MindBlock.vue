@@ -4,6 +4,7 @@ import { MindBlockType } from '@/types'
 import MindBranch from '@/components/MindBranch/src/MindBranch.vue'
 import { computed } from 'vue'
 import { mindTree } from '@/composables/useMindTree'
+import { getClassName } from '@/composables/getClassName.ts'
 
 const props = withDefaults(defineProps<{
 	mindBlock: MindBlockType
@@ -15,12 +16,14 @@ const childBlocks = computed(() => {
 	})
 })
 
+
 </script>
 
 <template>
 	<div class="mind_block">
-		<div contenteditable="true"
+		<div :class="getClassName(mindBlock)"
 				class="node_input"
+				contenteditable="true"
 				@keydown.enter="enter($event, mindBlock)"
 				:value="mindBlock.value"
 				:id="mindBlock.branchId.toString() + '-' + mindBlock.id">{{
