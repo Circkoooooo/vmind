@@ -11,6 +11,7 @@ withDefaults(defineProps<{
 	<div class="mind_branch">
 		<MindBlock v-for="(block, key) in blocks"
 				:key="key"
-				:mindBlock="block"></MindBlock>
+				:mindBlock="block">
+		</MindBlock>
 	</div>
 </template>
