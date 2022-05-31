@@ -29,11 +29,10 @@ const enterToPush = async (oldBlock: MindBlockType) => {
 
 	mindTree.push(newBlock)
 	await nextTick()
-
 	createLine(
 		`${oldBlock.branchId.toString()}-${oldBlock.id.toString()}`,
 		`${newBlock.branchId.toString()}-${newBlock.id.toString()}`,
-		'straight'
+		'beziercurve'
 	)
 	document
 		.getElementById(`${newBlock.branchId.toString()}-${newBlock.id.toString()}`)

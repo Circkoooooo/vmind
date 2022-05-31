@@ -14,6 +14,7 @@ const childBlocks = computed(() => {
 		return item.parentId === props.mindBlock.id && item.branchId === props.mindBlock.branchId + 1
 	})
 })
+
 </script>
 
 <template>
@@ -26,6 +27,7 @@ const childBlocks = computed(() => {
 						mindBlock.value
 				}}
 		</div>
-		<MindBranch :blocks="childBlocks"></MindBranch>
+		<MindBranch v-if="childBlocks.length !== 0"
+				:blocks="childBlocks"></MindBranch>
 	</div>
 </template>

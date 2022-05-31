@@ -27,6 +27,7 @@ const updateCanvas = (
 			waitNode.push(node2)
 		}
 	})
+
 	// calculate left,right,height,width of the canvas.
 	let left = 0,
 		top = 0,
@@ -53,11 +54,16 @@ const updateCanvas = (
 			if (node.offsetTop < top) {
 				top = node.offsetTop
 			}
+
+			width = right - left
+		}
+		// Get the height size after the top size has calculated.
+		// otherwise it will get a wrong canvas height.
+		waitNode.forEach(node => {
 			if (node.offsetTop + node.offsetHeight - top > height) {
 				height = node.offsetTop + node.offsetHeight - top
 			}
-			width = right - left
-		}
+		})
 	})
 	canvas.style.left = left + 'px'
 	canvas.style.top = top + 'px'

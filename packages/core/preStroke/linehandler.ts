@@ -3,8 +3,7 @@ import { bindEvent } from '../../event/index'
 import { calculatePointList } from './calcPoint'
 import { canvas, initCanvas, updateCanvas } from './canvasHandler'
 import { strokeStraightLine } from '../strokeImp/strokeStraightLine'
-import { strokeQuadraticCurveLine } from '../strokeImp/strokeQuadraticCurveLine'
-
+import { strokeBezierCurveLine } from '../strokeImp/strokeBezierCurveLine'
 const lineBucket: LineInstance[] = []
 /**
  *  * put the function in the onMounted life cycle, offer two htmlElement node.
@@ -37,19 +36,19 @@ const createLine = async (
 	bindEvent('resize', window, () => strokeLine())
 }
 
-const strokeLine = () => {
+const strokeLine = async () => {
 	checkNodeExist()
 	updateCanvas(canvas, lineBucket)
-	const strokeLineList = calculatePointList(canvas, lineBucket)
 
+	const strokeLineList = calculatePointList(canvas, lineBucket)
 	strokeLineList.forEach(item => {
 		const { startPoint, endPoint, lineType } = item
 		switch (lineType) {
 			case 'straight':
 				strokeStraightLine(startPoint, endPoint)
 				break
-			case 'quadratic':
-				strokeQuadraticCurveLine(startPoint, endPoint)
+			case 'beziercurve':
+				strokeBezierCurveLine(startPoint, endPoint)
 				break
 		}
 	})
