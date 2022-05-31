@@ -21,7 +21,6 @@ const changeValue = (e: Event) => {
 	const input = e.target as HTMLInputElement
 	mindTree.forEach(item => {
 		if (item.id === props.mindBlock.id && item.branchId === props.mindBlock.branchId) {
-			console.log(input.value)
 			item.value = input.value
 		}
 	})
