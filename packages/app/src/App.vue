@@ -2,16 +2,16 @@
 import { onMounted } from 'vue'
 import { mindTree, storage } from './composables/useMindTree'
 import MindBlock from '@/components/MindBlock/src/MindBlock.vue'
-import { getStorageSync, setStorage } from './composables/useStorage'
+import { getStorageSync } from './composables/useStorage'
 import { saveProjectEvent } from './composables/useEvent'
-
+import { saveCanvas } from '@/composables/save'
 
 onMounted(async () => {
 	const data = getStorageSync('vmind-tree')
 	if (data) {
 		await storage(data)
 	}
-	
+
 	saveProjectEvent()
 })
 
@@ -19,7 +19,10 @@ onMounted(async () => {
 </script>
 
 <template>
-	<div class="container">
+	<div @click="saveCanvas">
+		保存图片
+	</div>
+	<div class="container" id="mind-cntainer">
 		<MindBlock id="root_mind"
 				:mindBlock="mindTree[0]"></MindBlock>
 	</div>

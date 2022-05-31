@@ -1,6 +1,8 @@
 import html2canvas from 'html2canvas'
 export const saveCanvas = () => {
-	html2canvas(document.body).then(function (canvas) {
+	const container = document.getElementById('mind-cntainer')
+	if (!container) return
+	html2canvas(container).then(function (canvas) {
 		canvas.toBlob(function (blob) {
 			const timestamp = Date.now().toString()
 			const a = document.createElement('a')
