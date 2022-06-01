@@ -12,3 +12,7 @@ import {createLine} from '@vmind/core'
 
 createLine("nodeId-1","nodeId-2","straight")
 ```
+
+## Feature
+- [x] 1.create straight line.
+- [x] 2.create curve line.

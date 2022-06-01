@@ -34,6 +34,11 @@ you could use it in any web page. It will create a canvas in the page and create
 
 
 
+
+
+
+
+
 ## Help me
 1. If you met some bugs, please create a issue.
 
