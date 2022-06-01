@@ -3,10 +3,14 @@ import { LineInstance } from '../index'
 export let canvas: HTMLCanvasElement = null
 export let canvasRender: CanvasRenderingContext2D = null
 
-export const initCanvas = () => {
+export const initCanvas = (containerId: string) => {
 	canvas = document.createElement('canvas') as HTMLCanvasElement
 	canvasRender = canvas.getContext('2d')
-	document.body.appendChild(canvas)
+	if (containerId === undefined) {
+		document.body.appendChild(canvas)
+	} else {
+		document.getElementById(containerId).appendChild(canvas)
+	}
 	canvas.style.position = 'absolute'
 	canvas.style.pointerEvents = 'none'
 }

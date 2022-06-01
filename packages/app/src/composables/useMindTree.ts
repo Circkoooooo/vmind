@@ -61,11 +61,14 @@ const enterToPush = async (
 
 		mindTree.push(newBlock)
 		await nextTick()
+
 		createLine(
 			`${oldBlock.branchId.toString()}-${oldBlock.id.toString()}`,
 			`${newBlock.branchId.toString()}-${newBlock.id.toString()}`,
-			'beziercurve'
+			'beziercurve',
+			'mind-cntainer'
 		)
+
 		document
 			.getElementById(
 				`${newBlock.branchId.toString()}-${newBlock.id.toString()}`

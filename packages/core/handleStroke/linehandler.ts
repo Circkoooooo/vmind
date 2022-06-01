@@ -6,18 +6,20 @@ import { strokeStraightLine } from '../strokeImp/strokeStraightLine'
 import { strokeBezierCurveLine } from '../strokeImp/strokeBezierCurveLine'
 const lineBucket: LineInstance[] = []
 /**
- *  * put the function in the onMounted life cycle, offer two htmlElement node.
+ * put the function in the onMounted life cycle, offer two htmlElement node.
  * you need expose the function's invoke to a environment which exists the Window object.
  * @param lNodeId
  * @param rNodeId
- * @returns
+ * @param lineType
+ * @param container provide a conatiner id to contain the canvas. default container is body.
  */
 const createLine = async (
 	lNodeId: string,
 	rNodeId: string,
-	lineType: LineType
+	lineType: LineType,
+	containerId?: string
 ) => {
-	if (canvas === null) initCanvas()
+	if (canvas === null) initCanvas(containerId)
 	const node1 = document.getElementById(lNodeId)
 	const node2 = document.getElementById(rNodeId)
 
