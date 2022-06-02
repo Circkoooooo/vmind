@@ -29,8 +29,13 @@ It provides you some line tools, if you want to use it, see [@vmind/core](https:
 import {createLine} from '@mind/core'
 
 createLine("nodeId-1","nodeId-2","straight")
+
 ```
-you could use it in any web page. It will create a canvas in the page and create some line to connect two nodes.
+> select a container to build canvas. If you not give it a id, the canvas node will be append to body tag.
+```
+createLine("nodeId-1","nodeId-2","straight")
+createLine("nodeId-1","nodeId-2","straight","containerId")
+```
 
 
 
