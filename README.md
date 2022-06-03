@@ -36,18 +36,3 @@ createLine("nodeId-1","nodeId-2","straight")
 createLine("nodeId-1","nodeId-2","straight")
 createLine("nodeId-1","nodeId-2","straight","containerId")
 ```
-
-
-
-
-
-
-
-
-## Help me
-1. If you met some bugs, please create a issue.
-
-2. If the tool can't meet your needs, please create a issue.
-
-3. Right now, the project is being written, give me some advice if you want.
-
