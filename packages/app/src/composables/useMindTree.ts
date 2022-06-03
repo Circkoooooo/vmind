@@ -66,7 +66,7 @@ const enterToPush = async (
 			`${oldBlock.branchId.toString()}-${oldBlock.id.toString()}`,
 			`${newBlock.branchId.toString()}-${newBlock.id.toString()}`,
 			'beziercurve',
-			'mind-cntainer'
+			'root-block'
 		)
 
 		document

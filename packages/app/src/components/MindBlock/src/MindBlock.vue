@@ -7,7 +7,8 @@ import { mindTree } from '@/composables/useMindTree'
 import { getClassName } from '@/composables/getClassName.ts'
 
 const props = withDefaults(defineProps<{
-	mindBlock: MindBlockType
+	mindBlock: MindBlockType,
+	id?: string
 }>(), {})
 
 
@@ -30,7 +31,8 @@ const changeValue = (e: Event) => {
 </script>
 
 <template>
-	<div class="mind_block">
+	<div class="mind_block"
+			:id="id">
 		<input :class="getClassName(mindBlock)"
 				contenteditable="true"
 				class="node_input"

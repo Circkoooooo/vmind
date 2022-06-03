@@ -1,6 +1,6 @@
 import html2canvas from 'html2canvas'
 export const saveCanvas = () => {
-	const container = document.getElementById('mind-cntainer')
+	const container = document.getElementById('root-block')
 	if (!container) return
 	html2canvas(container).then(function (canvas) {
 		canvas.toBlob(function (blob) {

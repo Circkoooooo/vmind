@@ -11,7 +11,6 @@ onMounted(async () => {
 	if (data) {
 		await storage(data)
 	}
-
 	saveProjectEvent()
 })
 
@@ -22,8 +21,9 @@ onMounted(async () => {
 	<div @click="saveCanvas">
 		保存图片
 	</div>
-	<div class="container" id="mind-cntainer">
-		<MindBlock id="root_mind"
+	<div class="container"
+			id="mind-container">
+		<MindBlock id="root-block"
 				:mindBlock="mindTree[0]"></MindBlock>
 	</div>
 </template>

@@ -13,6 +13,7 @@ export const initCanvas = (containerId: string) => {
 	}
 	canvas.style.position = 'absolute'
 	canvas.style.pointerEvents = 'none'
+	canvas.setAttribute('id', 'vmind-canvas')
 }
 /*
  * update the postion and size of canvas, makes it cover the nodes.
