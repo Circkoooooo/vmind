@@ -1,11 +1,11 @@
 # <center> Vmind
 ## Introduction
-It's a mind map web application, and it also provides some tools in child packages.
+It's a mind map web application, and it also has some tools in child packages.
 
 ## Demo
 > It is a web application.
 
-if no pnpm
+if pnpm
 ```
 cd packages/app
 
@@ -13,7 +13,7 @@ npm run dev
 ```
 
 
-if you could use pnpm 
+if pnpm 
 ```
 npm install
 
