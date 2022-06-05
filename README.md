@@ -29,10 +29,8 @@ It provides you some line tools, if you want to use it, see [@vmind/core](https:
 import {createLine} from '@mind/core'
 
 createLine("nodeId-1","nodeId-2","straight")
-
-```
-> select a container to build canvas. If you not give it a id, the canvas node will be append to body tag.
-```
-createLine("nodeId-1","nodeId-2","straight")
+//or
 createLine("nodeId-1","nodeId-2","straight","containerId")
+//the canvas will be build in a container which id is 'containerId'
+
 ```
