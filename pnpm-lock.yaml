@@ -75,9 +75,11 @@ importers:
   packages/core:
     specifiers:
       '@vmind/event': workspace:*
+      tslib: ^2.4.0
       vitest: ^0.13.0
     dependencies:
       '@vmind/event': link:../event
+      tslib: 2.4.0
     devDependencies:
       vitest: 0.13.0
 

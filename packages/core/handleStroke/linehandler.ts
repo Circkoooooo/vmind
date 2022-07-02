@@ -11,7 +11,7 @@ const lineBucket: LineInstance[] = []
  * @param lNodeId
  * @param rNodeId
  * @param lineType
- * @param container provide a conatiner id to contain the canvas. default container is body.
+ * @param containerId provide a conatiner id to contain the canvas. default container is body.
  */
 const createLine = async (
 	lNodeId: string,
