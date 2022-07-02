@@ -1,6 +1,6 @@
 {
 	"name": "@vmind/core",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "",
 	"main": "./dist/bundle.js",
 	"types": "./dist/index.d.ts",
@@ -10,7 +10,8 @@
 	"author": "cirko",
 	"license": "ISC",
 	"dependencies": {
-		"@vmind/event": "workspace:*"
+		"@vmind/event": "workspace:*",
+		"tslib": "^2.4.0"
 	},
 	"devDependencies": {
 		"vitest": "^0.13.0"

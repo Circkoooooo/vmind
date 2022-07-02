@@ -1,6 +1,6 @@
 {
 	"private": true,
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "a mind map tools",
 	"scripts": {
 		"dev": "pnpm -r --parallel --filter=./packages/** run dev",
